@@ -94,6 +94,25 @@
             });
 
 
+            //form validation
+            $('.searchterm').on('input', function () {
+                var search = $('.searchbtn');
+                if ($(this).val().length > 0) {
+                    search.attr('disabled', false);
+                } else {
+                    search.attr('disabled', true);
+                }
+            });
+
+            $('.writeterm').on('input', function () {
+                var write = $('.writebtn');
+                if ($(this).val().length > 0 && $(this).val().includes(' .L/')) {
+                    write.attr('disabled', false);
+                } else {
+                    write.attr('disabled', true);
+                }
+            });
+
 
             //SEARCH
             $('.searchbtn').on('click', function () {
