@@ -12,12 +12,13 @@ namespace VedaleonTechTest.Controllers
     public class PassengerController : ApiController
     {
         List<Passengers> p = new List<Passengers>();
+        string file = @"C:\Users\Simon\Dropbox\VedaleonTechTest\pnl.txt";
 
         //constructor
         public PassengerController()
         {
             //read from file
-            using (StreamReader sr = File.OpenText("C:\\Users\\Simon\\Dropbox\\VedaleonTechTest\\pnl.txt"))
+            using (StreamReader sr = File.OpenText(file))
             {
                 string s = String.Empty;
 
@@ -48,6 +49,13 @@ namespace VedaleonTechTest.Controllers
         // POST
         public void Post(Passengers item)
         {
+            //write to file
+            using (StreamWriter sw = File.AppendText(file))
+            {
+                sw.WriteLine("\n" + item.Id);
+            }
+
+            //add to Passengers list
             p.Add(item);
         }
     }
