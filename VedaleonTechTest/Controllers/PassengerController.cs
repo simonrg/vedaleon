@@ -33,16 +33,22 @@ namespace VedaleonTechTest.Controllers
             }
         } 
 
-        // GET api/passengers
-        public IEnumerable<Passengers> GetAllPassengers()
+        // GET api/passenger
+        public IEnumerable<Passengers> GetAllRecords()
         {
             return p;
         }
 
-        // GET api/passengers?idx=2
+        // GET api/passenger?idx=
         public Passengers GetRecord(int idx)
         {
             return p.ElementAt(idx);
+        }
+
+        // POST
+        public void Post(Passengers item)
+        {
+            p.Add(item);
         }
     }
 }

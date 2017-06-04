@@ -37,5 +37,70 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var records = {};
+            var li = [];
+
+            //GET
+            $.ajax({
+                type: 'GET',
+                url: 'api/passenger',
+                contentType: 'application/json',
+                success: function (response) {
+                    for (var i = 0; i < response.length; i++) {
+                        var passenger = response[i].Id.split('.L/')[0];
+                        passenger = passenger.substring(1, passenger.indexOf('-'));
+                        var flightno = response[i].Id.split('.L/')[1];
+
+                        //add the flightno as key
+                        if (!(flightno in records)) {
+                            records[flightno] = [passenger];
+                        }
+                        else {
+                            //flightno has more than one passenger
+                            records[flightno].push(passenger);
+                        }
+                    }
+
+                    //add to dom
+                    for (var key in records) {
+                        li.push('<li class="record-flight__item">' + key + '<ul class="record-passenger">');
+
+                        for (var v = 0; v < records[key].length; v++)
+                            li.push('<li class="record-passenger__item">' + records[key][v] + '</li>');
+
+                        li.push('</ul></li>');
+                    }
+                    $('.output').append('<ul class="record-flight">' + li + '</ul>');
+                }
+            });
+
+            //POST
+            $('.writebtn').on('click', function () {
+                //get text from input field
+                var input = { Id: $('.writeterm').val() };
+
+                //use post api post method to add to passenger list
+                $.ajax({
+                    type: 'POST',
+                    url: 'api/passenger',
+                    data: JSON.stringify(input),
+                    contentType: 'application/json',
+                    success: function () {
+                        console.log('successfully updated!');
+                    }
+                });
+            });
+
+
+
+            //SEARCH
+            $('.searchbtn').on('click', function () {
+                console.log($('.searchterm').val());
+            });
+
+        });
+    </script>
 </body>
 </html>

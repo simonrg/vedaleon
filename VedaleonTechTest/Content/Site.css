@@ -15,3 +15,36 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.record-flight {
+    padding-left: 0;
+}
+
+.record-flight,
+.record-passenger {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.record-flight__item {
+    border: 1px solid;
+    border-radius: 2px;
+    padding: 20px;
+}
+
+.panel-lead {
+    background-color: #c5c5c5;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #a2a2a2;
+    padding: 20px;
+}
+
+.panel-lead__text {
+    background-color: #f9f9f9;
+    font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+.panel-controls__btn {
+    float: right;
+}
