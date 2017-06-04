@@ -16,10 +16,6 @@ textarea {
     max-width: 280px;
 }
 
-.record-flight {
-    padding-left: 0;
-}
-
 .record-flight,
 .record-passenger {
     list-style-type: none;
@@ -29,7 +25,10 @@ textarea {
 .record-flight__item {
     border: 1px solid;
     border-radius: 2px;
-    padding: 20px;
+}
+
+.record-flight__item:not(:last-child) {
+    margin-bottom: 30px;
 }
 
 .panel-lead {
@@ -43,8 +42,77 @@ textarea {
 .panel-lead__text {
     background-color: #f9f9f9;
     font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+    margin: 0;
+}
+
+.panel-controls {
+    border: 1px solid #a2a2a2;
+}
+
+.panel-controls__container {
+    border-bottom: 1px solid #a2a2a2;
+    padding: 20px;
+}
+
+.jumbotron {
+    border: 2px solid #a2a2a2;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.controls {
+    display: block;
+}
+
+.controls-search {
+    padding-bottom: 20px;
+}
+
+@media screen and (min-width: 1200px) {
+    .controls {
+        display: inline-block;
+    }
+
+    .controls-search {
+        padding-bottom: 0;
+    }
+
+    .controls-write {
+        float: right;
+    }
+}
+
+.controls-inner {
+    display: flex;
+}
+
+.input-field {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.input-label {
+    flex: 3;
+    font-weight: 100;
+    min-width: 75px;
+}
+
+.input-label,
+.input-field {
+    margin-right: 10px;
 }
 
 .panel-controls__btn {
     float: right;
+    flex: 1;
+}
+
+.flight-number {
+    padding: 15px;
+    border-bottom: 1px solid;
+    margin-bottom: 0;
+}
+
+.record-passenger {
+    padding: 15px;
 }

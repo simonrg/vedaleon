@@ -65,14 +65,14 @@
 
                     //add to dom
                     for (var key in records) {
-                        li.push('<li class="record-flight__item">' + key + '<ul class="record-passenger">');
+                        li.push('<li class="record-flight__item"><p class="flight-number">' + key + '</p><ul class="record-passenger">');
 
                         for (var v = 0; v < records[key].length; v++)
                             li.push('<li class="record-passenger__item">' + records[key][v] + '</li>');
 
                         li.push('</ul></li>');
                     }
-                    $('.output').append('<ul class="record-flight">' + li + '</ul>');
+                    $('.output').append('<ul class="record-flight">' + li.join('') + '</ul>');
                 }
             });
 
