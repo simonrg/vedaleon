@@ -52,7 +52,7 @@ namespace VedaleonTechTest.Controllers
             //write to file
             using (StreamWriter sw = File.AppendText(file))
             {
-                sw.WriteLine("\n" + item.Id);
+                sw.WriteLine(item.Id);
             }
 
             //add to Passengers list
