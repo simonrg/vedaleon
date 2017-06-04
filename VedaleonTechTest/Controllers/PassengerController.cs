@@ -12,7 +12,7 @@ namespace VedaleonTechTest.Controllers
     public class PassengerController : ApiController
     {
         List<Passengers> p = new List<Passengers>();
-        string file = @"C:\Users\Simon\Dropbox\VedaleonTechTest\pnl.txt";
+        string file = AppDomain.CurrentDomain.BaseDirectory + "pnl.txt";
 
         //constructor
         public PassengerController()
