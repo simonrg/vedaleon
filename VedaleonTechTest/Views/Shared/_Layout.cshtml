@@ -50,9 +50,15 @@
                 success: function (response) {
                     for (var i = 0; i < response.length; i++) {
                         var passenger = response[i].Id.split('.L/')[0];
-                        passenger = passenger.substring(1, passenger.indexOf('-'));
                         var flightno = response[i].Id.split('.L/')[1];
 
+                        //not ideal..
+                        if (passenger.indexOf('-') > -1) {
+                            passenger = passenger.substring(0, passenger.indexOf('-')).replace(/[0-9]/g, '');
+                        } else {
+                            passenger = passenger.substring(0, passenger.indexOf(' ')).replace(/[0-9]/g, '');
+                        }
+                        
                         //add the flightno as key
                         if (!(flightno in records)) {
                             records[flightno] = [passenger];
@@ -88,9 +94,14 @@
                     data: JSON.stringify(input),
                     contentType: 'application/json',
                     success: function () {
-                        console.log('successfully updated!');
+                        window.alert('Success! Please refresh your browser to review the updated records list');
                     }
                 });
+            });
+
+            //SEARCH
+            $('.searchbtn').on('click', function () {
+                console.log($('.searchterm').val());
             });
 
 
@@ -111,12 +122,6 @@
                 } else {
                     write.attr('disabled', true);
                 }
-            });
-
-
-            //SEARCH
-            $('.searchbtn').on('click', function () {
-                console.log($('.searchterm').val());
             });
 
         });

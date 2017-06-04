@@ -23,7 +23,7 @@ textarea {
 }
 
 .record-flight__item {
-    border: 1px solid;
+    border: 1px solid #a2a2a2;
     border-radius: 2px;
 }
 
@@ -36,13 +36,14 @@ textarea {
     text-align: center;
     border-radius: 2px;
     border: 1px solid #a2a2a2;
-    padding: 20px;
+    padding: 10px;
 }
 
 .panel-lead__text {
     background-color: #f9f9f9;
     font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
     margin: 0;
+    display: inline-block;
 }
 
 .panel-controls {
@@ -111,8 +112,10 @@ textarea {
     padding: 15px;
     border-bottom: 1px solid;
     margin-bottom: 0;
+    background-color: #d6d6d6;
 }
 
 .record-passenger {
     padding: 15px;
+    border-bottom: 1px solid #a2a2a2;
 }
